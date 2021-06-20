@@ -1,0 +1,64 @@
+Task 1 
+ids = {'user1': [213, 213, 213, 15, 213],
+'user2': [54, 54, 119, 119, 119],
+'user3': [213, 98, 98, 35]}
+#Результат: {98, 35, 15, 213, 54, 119}
+geodata = []
+for users in ids:
+    #print (ids[users])
+    geodata = geodata + ids[users]
+print (set(geodata))
+
+Task 2
+queries = [
+    'смотреть сериалы онлайн',
+    'новости спорта',
+    'афиша кино',
+    'курс доллара',
+    'сериалы этим летом',
+    'курс по питону',
+    'сериалы про спорт',
+]
+
+two_words = 0
+three_words = 0
+lengg = len(queries)
+
+for query in queries:
+    wordsCount = len(query.split())
+    if (wordsCount == 2):
+        two_words = two_words + 1
+    elif (wordsCount == 3):
+        three_words = three_words + 1
+        
+print("{:.2f}% двух слов".format(two_words / lengg * 100 ))
+print("{:.2f}% трех слов".format(three_words / lengg * 100))
+
+Task 3 
+
+def Get_ROI(x, y):
+    return round((x / y - 1) * 100, 2)
+
+results = {
+'vk': {'revenue': 103, 'cost': 98},
+'yandex': {'revenue': 179, 'cost': 153},
+'facebook': {'revenue': 103, 'cost': 110},
+'adwords': {'revenue': 35, 'cost': 34},
+'twitter': {'revenue': 11, 'cost': 24},
+}
+
+for result in results:
+  results[result].update({'ROI': Get_ROI(results[result].get('revenue'), results[result].get('cost'))})
+  print(results[result])
+
+Task 4 
+
+stats = {'facebook': 55, 'yandex': 115, 'vk': 120, 'google': 99, 'email': 42, 'ok': 98}
+max = -1
+key = ""
+for stat in stats:  
+    if (stats[stat] > max):
+        max = stats[stat]
+        key = stat
+    
+print (key)
